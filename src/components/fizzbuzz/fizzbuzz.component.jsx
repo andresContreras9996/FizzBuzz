@@ -1,13 +1,14 @@
-import React from 'react';
-import './fizzbuzz.styles.css';
-import {checkNumber,getFizzBuzz} from './fizzbuzz.utils';
+import React from "react";
+import "./fizzbuzz.styles.css";
+import {Card} from '../card/card.component'
+import { checkBackground,getWord} from "./fizzbuzz.utils";
 
-export const FizzBuzz = ({number}) => {
-  const classnames=['fizzbuzz-container',checkNumber(number)].join(' ');
-  return (
-    <div className={classnames} >
-      <h1>{getFizzBuzz(number)}</h1>
-      <p>{number}</p>
-    </div>
-  )
-}
+export const FizzBuzz = ({ sequence }) => {
+  return <div className='fizzbuzz-container'>
+    {sequence.map(number=>{
+      const background=checkBackground(number);
+      const word=getWord(number);
+      return <Card background={background} word={word} number={number}></Card>
+    })}
+  </div>;
+};

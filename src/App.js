@@ -6,27 +6,20 @@ export default class App extends Component {
   constructor(){
     super();
     this.state={
-      count:1,
+      numbers:[],
     };
   }
 
   componentDidMount(){
-    setInterval(this.incrementCounter,1000)
-  }
-
-  incrementCounter=()=>{
-    this.setState((prevState,prevProps)=>{
-      if(prevState.count===100){
-        return({count:1})
-      }
-      return({count:prevState.count+1})
-    })
+    const sequence=Array.from(Array(100),(element,index)=>index+1);
+    this.setState({numbers:sequence});
   }
 
   render() {
+    const {numbers}=this.state;
     return (
       <div>
-        <FizzBuzz number={this.state.count}/>
+        <FizzBuzz sequence={numbers}></FizzBuzz>
       </div>
     );
   }
