@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {FizzBuzz} from './components/fizzbuzz/fizzbuzz.component';
+
+export default class App extends Component {
+  constructor(){
+    super();
+    this.state={
+      count:1,
+    };
+  }
+
+  componentDidMount(){
+    setInterval(this.incrementCounter,1000)
+  }
+
+  incrementCounter=()=>{
+    this.setState((prevState,prevProps)=>{
+      if(prevState.count===100){
+        return({count:1})
+      }
+      return({count:prevState.count+1})
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <FizzBuzz number={this.state.count}/>
+      </div>
+    );
+  }
 }
-
-export default App;

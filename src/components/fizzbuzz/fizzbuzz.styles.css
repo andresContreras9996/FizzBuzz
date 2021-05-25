@@ -1,0 +1,20 @@
+
+.fizzbuzz-container{
+  margin:0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  font-size: 30px;
+}
+.red-background{
+  background: rgba(255,0,0,.5);
+}
+.green-background{
+  background: rgba(0,255,0,.5);
+}
+.yellow-background{
+  background: rgba(255,255,0,.5);
+}
